@@ -20,7 +20,7 @@ namespace ServiceWCF
 			Console.WriteLine("Обработан запрос. " + s);
 
 			if (s == "double")
-				return 777.78;
+				return 777.79;
 
 			return 0;
 		}
