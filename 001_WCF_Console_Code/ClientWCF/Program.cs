@@ -16,10 +16,9 @@ namespace ClientWCF
     {
         static void Main()
         {
-            Console.Title = "CLIENT";
+            Console.Title = "Client WCF";
 
-            ChannelFactory<IContractService> channelFactory =
-                new ChannelFactory<IContractService>(new BasicHttpBinding(), new EndpointAddress("http://localhost:8000/ServiceWCF"));
+            var channelFactory = new ChannelFactory<IContractService>(new BasicHttpBinding(), new EndpointAddress("http://localhost:8888/Test"));
 
             IContractService service = channelFactory.CreateChannel();
 
@@ -27,7 +26,7 @@ namespace ClientWCF
             Console.WriteLine("Double: {0}", digit);
 
             // Задержка.
-            Console.WriteLine("Для завершения нажмите <Any Key>.");
+            Console.WriteLine("Press any key to exit client.");
             Console.ReadKey();
         }
     }

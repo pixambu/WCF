@@ -17,7 +17,7 @@ namespace ServiceWCF
 	{
 		public double Method(string s)
 		{
-			Console.WriteLine("Обработан запрос. " + s);
+			Console.WriteLine("Got request: " + s);
 
 			if (s == "double")
 				return 777.79;
@@ -32,15 +32,15 @@ namespace ServiceWCF
 	{
 		static void Main(string[] args)
 		{
-			Console.Title = "SERVER";
+			Console.Title = "Server WCF";
 
-			ServiceHost serviceHost = new ServiceHost(typeof(MyService), new Uri("http://localhost:8000/ServiceWCF"));
+			ServiceHost serviceHost = new ServiceHost(typeof(MyService), new Uri("http://localhost:8888/Test"));
 
 			serviceHost.AddServiceEndpoint(typeof(IContractService), new BasicHttpBinding(), "");
 
 			serviceHost.Open();
 
-			Console.WriteLine("Для завершения нажмите <Any Key>.");
+			Console.WriteLine("Press any key to terminate the service.");
 			Console.ReadKey();
 
 			serviceHost.Close();
